@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MESSAGES</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <link rel="stylesheet" href="liuyanban.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: black; */
+        }
+
+        span {
+            display: inline-block;
+            /* 确保 span 能正常显示动画 */
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="player-warp">
+        <div class="player-info1"></div>
+        <div class="player-info">
+            <div>
+                <div class="mingzi">小宇 —— (cover)蓝心羽</div>
+            </div>
+            <div class="tubiao">
+                <ul class="biaoqian">
+                    <li id="pp1"><span id="xiayishou"></span></li>
+                    <li id="pp2"><span id="bofang"></span><span id="zanting"></span></li>
+                    <li id="pp3"><span id="shangyishou"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="music_progress">
+            <div class="music_progress_top">
+                <span class="current_time">00:00</span>
+                <span class="time">02:43</span>
+                <div class="music_progress_bar">
+                    <div class="music_progress_line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation1 = lottie.loadAnimation({
+            container: document.getElementById('shangyishou'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'shangyishou.json' // 动画 JSON 文件路径
+        });
+
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation2 = lottie.loadAnimation({
+            container: document.getElementById('xiayishou'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'xiayishou.json' // 动画 JSON 文件路径
+        });
+
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation3 = lottie.loadAnimation({
+            container: document.getElementById('bofang'), // 指定容器
+            renderer: 'svg',
+            loop: false, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'bofang.json' // 动画 JSON 文件路径
+        });
+
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation4 = lottie.loadAnimation({
+            container: document.getElementById('zanting'), // 指定容器
+            renderer: 'svg',
+            loop: false, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'zanting.json' // 动画 JSON 文件路径
+        });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('pp1').addEventListener('mouseenter', function () {
+            animation2.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('pp1').addEventListener('mouseleave', function () {
+            animation2.stop();
+        });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('pp2').addEventListener('mouseenter', function () {
+            animation3.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('pp2').addEventListener('mouseleave', function () {
+            animation3.stop();
+        });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('pp3').addEventListener('mouseenter', function () {
+            animation1.play();
+            const container = document.getElementById('shangyishou');
+            container.classList.add('shangyishou.hidden'); // 添加隐藏样式
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('pp3').addEventListener('mouseleave', function () {
+            animation1.stop();
+        });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('pp2').addEventListener('mouseenter', function () {
+            animation4.play();
+            const container = document.getElementById('shangyishou');
+            container.classList.add('shangyishou.hidden'); // 添加隐藏样式
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('pp2').addEventListener('mouseleave', function () {
+            animation4.stop();
+        });
+
+    </script>
+    <audio src=""></audio>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+        // 保存音乐列表信息
+        var musicList = [];
+        // 声明变量，保存当前歌曲
+        var currentIndex = 0;
+        // 加载音乐列表信息
+        $.ajax({
+            type: "GET",
+            url: "./music.json",
+            dataType: "json",
+            success: function (data) {
+                musicList = data
+
+                render(musicList[currentIndex])
+            },
+        });
+
+        // 根据信息，设置对应标签内容
+        function render(data) {
+            $(".mingzi").text(data.mingzi);
+            $(".time").text(data.time);
+            $("audio").attr("src", data.audio_url);
+        }
+
+        // 给播放按钮绑定点击事件
+        $("#pp2").on("click", function () {
+            if ($("audio").get(0).paused) {
+                // 切换图标
+                $("#zanting").css({
+                    "display": "block"
+                })
+                $("#bofang").css({
+                    "display": "none"
+                })
+                // console.log($("audio").get(0));
+                $("audio").get(0).play();
+            } else {
+                // 切换图标
+                $("#zanting").css({
+                    "display": "none"
+                })
+                $("#bofang").css({
+                    "display": "block"
+                })
+                $("audio").get(0).pause();
+            };
+        })
+
+        // 上一首
+        $("#pp3").on("click", function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = musicList.length - 1;
+            }
+
+            // 重新渲染歌曲信息
+            render(musicList[currentIndex]);
+            // 让音乐播放
+            $("#pp2").trigger("click");
+        })
+
+        // 下一首
+        $("#pp1").on("click", function () {
+            if (currentIndex < musicList.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+
+            // 重新渲染歌曲信息
+            render(musicList[currentIndex]);
+            $("#pp2").trigger("click");
+        })
+        // 监听aduio标签的timeupdate事件
+        $("audio").on("timeupdate", function () {
+            // 当前音乐时间：s
+            var currentTime = $("audio").get(0).currentTime || 0;
+            // 音乐总长：s
+            var duration = $("audio").get(0).duration || 0;
+            console.log(formatTime(currentTime), formatTime(duration));
+            $(".current_time").text(formatTime(currentTime))
+            var value = (currentTime / duration) * 96;
+            $(".music_progress_bar").css({
+                width: value + '%'
+            });
+        });
+
+
+        // 格式化时间
+        function formatTime(time) {
+            var min = parseInt(time / 60);
+            var sec = parseInt(time % 60);
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+            return min + ':' + sec;
+        }
+
+        // 格式化时间
+        // function formatTime(time) {
+        //     cur_minutes = Math.floor(audio.currentTime / 60);
+        //     cur_seconds = Math.floor(audio.currentTime - cur_minutes * 60);
+        //     dur_minutes = Math.floor(audio.duration / 60);
+        //     dur_seconds = Math.floor(audio.duration - cur_minutes * 60);
+        //     play_progress =audio.currentTime /audio.duration*100;
+        //     if(cur_minutes<10){
+        //         cur_minutes ="0"+cur_minutes;
+        //     }
+        //     if(cur_seconds<10){
+        //         cur_seconds ="0"+cur_seconds;
+        //     }
+        //     if(dur_minutes<10){
+        //         dur_minutes ="0"+dur_minutes;
+        //     }
+        //     if(dur_seconds<10){
+        //         dur_seconds ="0"+dur_seconds;
+        //         current_time .innerText=cur_minutes +':'+cur_seconds
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

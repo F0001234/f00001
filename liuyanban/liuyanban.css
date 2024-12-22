@@ -1,0 +1,132 @@
+.player-info1 {
+    position: absolute;
+    padding: 1px rgba(255, 255, 255, 0.514);
+    border-radius: 5px;
+    /* display: flex; */
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0.8;
+    box-shadow: 0 1px 10px rgba(255, 192, 250, 0.514);
+    width: 100%;
+    height: 27px;
+    border-radius: 2px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background-image: linear-gradient(#fff, #fff),
+        linear-gradient(to right, #0400ff, #c720ff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border-radius: 20px;
+    top: 22px;
+    display: flex;
+}
+
+.player-info {
+    position: relative;
+    /* padding: 7px; */
+    background: linear-gradient(to right, #7a65ff, #dc72ff);
+    white-space: nowrap;
+    z-index: 3;
+    opacity: 0.6;
+    box-shadow: 0 1px 10px rgba(255, 192, 250, 0.514);
+    width: 99%;
+    height: 23px;
+    border-radius: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    margin: auto;
+    top: 24px;
+}
+
+.player-warp {
+    margin: auto;
+}
+
+.player-warp {
+    position: relative;
+    width: 60%;
+    height: 90px;
+}
+
+
+ul li {
+    position: relative;
+    list-style: none;
+    padding: 25px;
+    float: right;
+    top: -23px;
+    display: flex;
+}
+
+.tubiao {
+    height: 23px;
+    position: absolute;
+    list-style: none;
+    padding-left: 25px;
+    right: 0px;
+    display: flex;
+    z-index: 5;
+    /* top: -23px; */
+
+}
+
+.mingzi {
+    height: 23px;
+    width: 40%;
+    position: relative;
+    list-style: none;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 3px;
+    float: left;
+    display: flex;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+
+.current_time {
+    position: absolute;
+    left: 10px;
+    top: 28px;
+    display: flex;
+    font-size: 8px;
+    color: #5a5a5a;
+    letter-spacing: 1px;
+}
+
+.time {
+    position: absolute;
+    right: 10px;
+    top: 28px;
+    display: flex;
+    font-size: 8px;
+    color: #5a5a5a;
+    letter-spacing: 1px;
+
+}
+
+.music_progress_top {
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+
+.music_progress_bar {
+    position: absolute;
+    left: 2%;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, #7a65ff, #dc72ff);
+    top: 40px;
+    border-radius: 2px;
+
+}
+#bofang{
+    display: block;
+}
+#zanting{
+    display: none;
+}

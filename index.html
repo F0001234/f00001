@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Animation Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            font-size: 2vmin;
+            margin: 0;
+            padding: 0;
+        }
+
+        #lottie-container {
+            position: relative;
+            background-color: #ffffff;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2
+        }
+
+        #lottie-container.hidden {
+            display: none;
+            transition: 0.8s;
+        }
+
+        .home {
+            width: 45px;
+            opacity: 0.8;
+        }
+
+        span {
+            display: inline-block;
+            /* 确保 span 能正常显示动画 */
+            width: 60px;
+            /* 设置宽度 */
+            height: 60px;
+            /* 设置高度 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="">
+        <div id="lottie-container"></div>
+    </div>
+    <section id="section">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <ul id="liebiao">
+            <li id="qq1"><a href="#"><i><span id="animation4"></span></i></a></li><div id="tooltip1" class="tooltip1"></div><div class="jindu1"><i class="weiwancheng">未维护00%</i></div>
+            <li id="qq2"><a href="#"><i><span id="animation2"></span></i></a></li><div id="tooltip2" class="tooltip2"></div><div class="jindu2"><i class="weiwancheng">未维护00%</i></div>
+            <li id="qq3"><a href="#"><i><span id="animation3"></span></i></a></li><div id="tooltip3" class="tooltip3"></div><div class="jindu3"><i class="weiwancheng">未维护00%</i></div>
+            <li id="qq4"><a href="#"><i><span id="animation1"></span></i></a></li><div id="tooltip4" class="tooltip4"></div><div class="jindu4"><i class="weiwancheng">未维护00%</i></div>
+            <li id="qq5"><a href="./liuyanban/liuyanban.html"><i><span id="animation5"></span></i></a></li><div id="tooltip5" class="tooltip5"></div><div class="jindu5"><i class="wancheng">维护中30%</i></div>
+        </ul>
+    </section>
+    <script>
+        // f0001
+        // 初始化 Lottie
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-container'), // 动画容器
+            renderer: 'svg', // 渲染方式
+            loop: false, // 设置为不循环
+            autoplay: true, // 自动播放
+            path: 'data.json', // 动画 JSON 文件路径
+        });
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation1 = lottie.loadAnimation({
+            container: document.getElementById('animation1'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'animation1.json' // 动画 JSON 文件路径
+        });
+        // 个人动画
+        // 初始化 Lottie 动画
+        const animation2 = lottie.loadAnimation({
+            container: document.getElementById('animation2'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'animation2.json' // 动画 JSON 文件路径
+        });
+                // 个人动画
+        // 初始化 Lottie 动画
+        const animation3 = lottie.loadAnimation({
+            container: document.getElementById('animation3'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'animation3.json' // 动画 JSON 文件路径
+        });
+             // 个人动画
+        // 初始化 Lottie 动画
+        const animation4 = lottie.loadAnimation({
+            container: document.getElementById('animation4'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'animation4.json' // 动画 JSON 文件路径
+        });
+// 个人动画
+        // 初始化 Lottie 动画
+        const animation5 = lottie.loadAnimation({
+            container: document.getElementById('animation5'), // 指定容器
+            renderer: 'svg',
+            loop: true, // 循环播放
+            autoplay: false, // 初始不播放
+            path: 'animation5.json' // 动画 JSON 文件路径
+        });
+
+        // 监听动画完成事件
+        animation.addEventListener('complete', () => {
+            const container = document.getElementById('lottie-container');
+            container.classList.add('hidden'); // 添加隐藏样式
+        });
+        animation.addEventListener('complete', () => {
+            const container = document.getElementById('section');
+            container.classList.add('hidden'); // 添加隐藏样式
+        });
+        animation.addEventListener('complete', () => {
+            const container = document.getElementById('liebiao');
+            container.classList.add('hidden'); // 添加隐藏样式
+        });
+        // animation.addEventListener('complete', () => {
+        //     const container = document.getElementById('section .color');
+        //     container.classList.add('hidden'); // 添加隐藏样式
+        // });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('qq4').addEventListener('mouseenter', function () {
+            animation1.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('qq4').addEventListener('mouseleave', function () {
+            animation1.stop();
+        });
+
+        // 鼠标悬停时播放动画
+        document.getElementById('qq2').addEventListener('mouseenter', function () {
+            animation2.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('qq2').addEventListener('mouseleave', function () {
+            animation2.stop();
+        });
+        // 鼠标悬停时播放动画
+        document.getElementById('qq3').addEventListener('mouseenter', function () {
+        animation3.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('qq3').addEventListener('mouseleave', function () {
+            animation3.stop();
+        });
+        // 鼠标悬停时播放动画
+        document.getElementById('qq1').addEventListener('mouseenter', function () {
+        animation4.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('qq1').addEventListener('mouseleave', function () {
+            animation4.stop();
+        });
+        // 鼠标悬停时播放动画
+        document.getElementById('qq5').addEventListener('mouseenter', function () {
+        animation5.play();
+        });
+
+        // 鼠标离开时暂停动画
+        document.getElementById('qq5').addEventListener('mouseleave', function () {
+            animation5.stop();
+        });
+    </script>
+    <!-- 提示框 -->
+    <script>
+        // 个人
+        const hoverBox4 = document.querySelector('.qq4');
+        const tooltip4 = document.getElementById('tooltip4');
+
+        qq4.addEventListener('mouseover', function (e) {
+            tooltip4.style.display = 'block';
+            // tooltip.style.top = '80px';
+            // tooltip.style.transition = '2s';
+            tooltip4.textContent = 'MYSELF';
+            // tooltip.style.left = e.clientX + -130 + 'px'; // 设置提示框的水平位置
+            // tooltip.style.top = e.clientY + -300 + 'px'; // 设置提示框的垂直位置
+
+        });
+
+        qq4.addEventListener('mouseout', function () {
+            tooltip4.style.display = 'none';
+        });
+        // 项目
+        const hoverBox2 = document.querySelector('.qq2');
+        const tooltip2 = document.getElementById('tooltip2');
+
+        qq2.addEventListener('mouseover', function (e) {
+            tooltip2.style.display = 'block';
+            tooltip2.textContent = 'ITEMS';
+            // tooltip2.style.left = e.pageX + -130 + 'px'; // 设置提示框的水平位置
+            // tooltip2.style.top = e.pageY + -300 + 'px'; // 设置提示框的垂直位置
+        });
+
+        qq2.addEventListener('mouseout', function () {
+            tooltip2.style.display = 'none';
+        });
+
+        const hoverBox1 = document.querySelector('.qq1');
+        const tooltip1 = document.getElementById('tooltip1');
+
+        qq1.addEventListener('mouseover', function (e) {
+            tooltip1.style.display = 'block';
+            tooltip1.textContent = 'TEAM';
+            // tooltip2.style.left = e.pageX + -130 + 'px'; // 设置提示框的水平位置
+            // tooltip2.style.top = e.pageY + -300 + 'px'; // 设置提示框的垂直位置
+        });
+
+        qq1.addEventListener('mouseout', function () {
+            tooltip1.style.display = 'none';
+        });
+
+        const hoverBox3 = document.querySelector('.qq3');
+        const tooltip3 = document.getElementById('tooltip3');
+
+        qq3.addEventListener('mouseover', function (e) {
+            tooltip3.style.display = 'block';
+            tooltip3.textContent = 'F001';
+            // tooltip2.style.left = e.pageX + -130 + 'px'; // 设置提示框的水平位置
+            // tooltip2.style.top = e.pageY + -300 + 'px'; // 设置提示框的垂直位置
+        });
+
+        qq3.addEventListener('mouseout', function () {
+            tooltip3.style.display = 'none';
+        });
+        const hoverBox5 = document.querySelector('.qq5');
+        const tooltip5 = document.getElementById('tooltip5');
+
+        qq5.addEventListener('mouseover', function (e) {
+            tooltip5.style.display = 'block';
+            tooltip5.textContent = 'TREE HOLLOW';
+            // tooltip2.style.left = e.pageX + -130 + 'px'; // 设置提示框的水平位置
+            // tooltip2.style.top = e.pageY + -300 + 'px'; // 设置提示框的垂直位置
+        });
+
+        qq5.addEventListener('mouseout', function () {
+            tooltip5.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

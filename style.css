@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #b1e2ff, #b9ebff);
+    z-index: 1;
+    opacity: 1
+}
+
+section.hidden {
+    opacity: 1;
+    transition: 0.8s;
+
+
+}
+
+/*绘制中间的横线 */
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+section .color {
+    position: absolute;
+    filter: blur(150px);
+    opacity: 0；
+}
+
+section.color.hidden {
+    opacity: 1;
+    transition: 2s;
+
+
+}
+
+section .color:nth-child(1) {
+    background: #80c2e0;
+    width: 42%;
+    height: 42%;
+    top: -350px;
+}
+
+section .color:nth-child(2) {
+    background: #8ee8ff;
+    width: 35%;
+    height: 35%;
+    bottom: -150px;
+    left: 100px;
+}
+
+section .color:nth-child(3) {
+    background: #8eb6ff;
+    width: 20%;
+    height: 20%;
+    bottom: 50px;
+    right: 0px;
+}
+
+#liebiao {
+    position: relative;
+    display: flex;
+    z-index: 2;
+    transform: translateY(-20px);
+}
+
+#liebiao.hidden {
+    transform: translateY(0px);
+    transition: 1.2s;
+}
+
+
+ul li {
+    position: relative;
+    list-style: none;
+    margin: 10px;
+
+
+
+}
+
+ul li a {
+    position: relative;
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    backdrop-filter: blur(2.5px);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+ul li a:hover {
+    transform: translateY(-20px);
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: rgba(250, 250, 250, 0.5);
+    transform: skewX(45deg) translateX(150px);
+    transition: 0.5s;
+}
+
+ul li a:hover::before {
+    transform: skewX(45deg) translateX(-150px);
+}
+
+/* 文字提示框 */
+.tooltip1 {
+    position: absolute;
+    padding: 8px;
+    background-color: #ffffff;
+    color: rgb(128, 162, 194);
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 32px;
+    top: 100px;
+}
+
+.tooltip2 {
+    position: absolute;
+    padding: 8px;
+    background-color: #ffffff;
+    color: rgb(128, 162, 194);
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 155px;
+    top: 100px;
+}
+.tooltip3 {
+    position: absolute;
+    padding: 8px;
+    background-color: #ffffff;
+    color: rgb(128, 162, 194);
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 280px;
+    top: 100px;
+}
+.tooltip4 {
+    position: absolute;
+    padding: 8px;
+    background-color: #ffffff;
+    color: rgb(128, 162, 194);
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 389px;
+    top: 100px;
+}
+.tooltip5 {
+    position: absolute;
+    padding: 8px;
+    background-color: #ffffff;
+    color: rgb(128, 162, 194);
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 493px;
+    top: 100px;
+}
+#animation3{
+    width: 70px;
+    /* 设置宽度 */
+    height: 70px;
+    /* 设置高度 */
+}
+#animation5{
+    width: 75px;
+    /* 设置宽度 */
+    height: 75px;
+    /* 设置高度 */
+}
+
+.jindu5 {
+    position: absolute;
+    background: linear-gradient(to right, #00ff73, #ffffff);
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 500px;
+    top: -30px;
+    width: 75px;
+    height: 5px;
+}
+.jindu1 {
+    position: absolute;
+    background: linear-gradient(to right, #ce0000, #a10000);
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 26px;
+    top: -30px;
+    width: 5px;
+    height: 5px;
+}
+.jindu2 {
+    position: absolute;
+    background: linear-gradient(to right, #9c0000, #a10000);
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 145px;
+    top: -30px;
+    width: 5px;
+    height: 5px;
+}
+.jindu3 {
+    position: absolute;
+    background: linear-gradient(to right, #9c0000, #a10000);
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 265px;
+    top: -30px;
+    width: 5px;
+    height: 5px;
+}
+.jindu4 {
+    position: absolute;
+    background: linear-gradient(to right, #9c0000, #a10000);
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0.75;
+    box-shadow: 0 5px 45px rgba(93, 160, 204, 0.514);
+    left: 386px;
+    top: -30px;
+    width: 5px;
+    height: 5px;
+}
+.wancheng{
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    z-index: 5;
+    font-size: 10px;
+}
+.weiwancheng{
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    z-index: 5;
+    font-size: 10px;
+}
