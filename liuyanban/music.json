@@ -9,14 +9,39 @@
         "audio_url": "./music/juebieshu.mp3",
         "time": "04:07"
     },
+        {
+        "mingzi": "葡萄成熟时 —— 陈奕迅",
+        "audio_url":  "./music/putaochengshushi.mp3",
+        "time": "04:39"
+    },
     {
         "mingzi": "只只 (Live) —— 孟凡明",
         "audio_url": "./music/zhizhi.mp3",
         "time": "03:54"
     },
-     {
+    {
+        "mingzi": "别归零 —— 鹭卓",
+        "audio_url":  "./music/bieguiling.mp3",
+        "time": "03:59"
+    },
+    {
+        "mingzi": "阿拉斯加海湾 —— 蓝心羽",
+        "audio_url":  "./music/alasijiahaiwan.mp3",
+        "time": "04:01"
+    },
+    {
         "mingzi": "123木头人(温柔女声版) —— 萝卜不爱吃萝卜",
         "audio_url":  "./music/123mutouren.mp3",
         "time": "03:55"
+    },
+      {
+        "mingzi": "相思 —— 毛阿敏",
+        "audio_url": "./music/xiangsi.mp3",
+        "time": "03:01"
+    },
+    {
+        "mingzi": "秋风 —— 四熹丸子",
+        "audio_url":  "./music/qiufeng.mp3",
+        "time": "03:21"
     }
- ]
+  ]
